@@ -1,0 +1,506 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="room_world">
+    <!-- 全局光照：关闭高光、关闭阴影，消除反光 -->
+    <light name="sun" type="directional">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 50 0 0 0</pose>
+      <diffuse>0.95 0.95 0.95 1</diffuse>
+      <specular>0 0 0 1</specular>
+      <direction>0.2 0.2 -0.8</direction>
+    </light>
+
+    <!-- 卧室房间：地面 + 四周墙 -->
+    <model name="bedroom">
+      <static>true</static>
+      <!-- 卧室地面：中心下移到z=-0.1，顶面=-0.05，轮子z=0不穿地 -->
+      <link name="floor">
+        <pose>0 0 -0.1 0 0 0</pose>
+        <collision name="floor_collision">
+          <geometry>
+            <box>
+              <size>10 8 0.1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="floor_visual">
+          <geometry>
+            <box>
+              <size>10 8 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.92 0.85 0.7 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+      <!-- 北墙 -->
+      <link name="wall_north">
+        <pose>0 4 1.5 0 0 0</pose>
+        <collision name="wall_north_collision">
+          <geometry>
+            <box>
+              <size>10 0.2 3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="wall_north_visual">
+          <geometry>
+            <box>
+              <size>10 0.2 3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.9 0.87 0.82 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+      <!-- 南墙 -->
+      <link name="wall_south">
+        <pose>0 -4 1.5 0 0 0</pose>
+        <collision name="wall_south_collision">
+          <geometry>
+            <box>
+              <size>10 0.2 3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="wall_south_visual">
+          <geometry>
+            <box>
+              <size>10 0.2 3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.9 0.87 0.82 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+      <!-- 东墙 -->
+      <link name="wall_east">
+        <pose>5 0 1.5 0 0 1.5707</pose>
+        <collision name="wall_east_collision">
+          <geometry>
+            <box>
+              <size>8 0.2 3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="wall_east_visual">
+          <geometry>
+            <box>
+              <size>8 0.2 3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.9 0.87 0.82 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+      <!-- 西墙 -->
+      <link name="wall_west">
+        <pose>-5 0 1.5 0 0 1.5707</pose>
+        <collision name="wall_west_collision">
+          <geometry>
+            <box>
+              <size>8 0.2 3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="wall_west_visual">
+          <geometry>
+            <box>
+              <size>8 0.2 3</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.9 0.87 0.82 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- 床 -->
+    <model name="bed">
+      <static>true</static>
+      <link name="link">
+        <pose>0 2.2 0.4 0 0 0</pose>
+        <collision name="bed_base_collision">
+          <geometry>
+            <box>
+              <size>2.2 1.8 0.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="bed_base_visual">
+          <geometry>
+            <box>
+              <size>2.2 1.8 0.4</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.3 0.2 0.15 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="bed_mattress_collision">
+          <geometry>
+            <box>
+              <size>2.1 1.7 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="bed_mattress_visual">
+          <pose>0 0 0.325 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.1 1.7 0.25</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="bed_pillow_left_collision">
+          <geometry>
+            <box>
+              <size>0.4 0.6 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="bed_pillow_left_visual">
+          <pose>-0.6 0.7 0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.4 0.6 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="bed_pillow_right_collision">
+          <geometry>
+            <box>
+              <size>0.4 0.6 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="bed_pillow_right_visual">
+          <pose>0.6 0.7 0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.4 0.6 0.15</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- 左侧床头柜 -->
+    <model name="nightstand_left">
+      <static>true</static>
+      <link name="link">
+        <pose>-1.4 3.4 0.45 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.4 0.25 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- 右侧床头柜 -->
+    <model name="nightstand_right">
+      <static>true</static>
+      <link name="link">
+        <pose>1.4 3.4 0.45 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.9</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 0.4 0.9</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.55 0.4 0.25 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- 书桌 -->
+    <model name="desk">
+      <static>true</static>
+      <link name="link">
+        <pose>-3.2 -2.8 0.375 0 0 0</pose>
+        <collision name="table_top_collision">
+          <geometry>
+            <box>
+              <size>1.4 0.7 0.05</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="table_top_visual">
+          <geometry>
+            <box>
+              <size>1.4 0.7 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.6 0.45 0.3 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="leg_left_front_collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.75</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="leg_left_front_visual">
+          <pose>-0.675 0.325 0.375 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.75</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.4 0.3 0.2 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="leg_right_front_collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.75</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="leg_right_front_visual">
+          <pose>0.675 0.325 0.375 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.75</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.4 0.3 0.2 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="leg_left_back_collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.75</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="leg_left_back_visual">
+          <pose>-0.675 -0.325 0.375 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.75</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.4 0.3 0.2 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="leg_right_back_collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.75</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="leg_right_back_visual">
+          <pose>0.675 -0.325 0.375 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.75</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.4 0.3 0.2 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- 椅子 -->
+    <model name="chair">
+      <static>true</static>
+      <link name="link">
+        <pose>-3.2 -1.6 0.225 0 0 0</pose>
+        <collision name="seat_collision">
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.05</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="seat_visual">
+          <geometry>
+            <box>
+              <size>0.5 0.5 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.3 0.3 0.3 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="back_collision">
+          <geometry>
+            <box>
+              <size>0.5 0.05 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="back_visual">
+          <pose>0 0.225 0.475 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.5 0.05 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.3 0.3 0.3 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="leg_left_front_collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="leg_left_front_visual">
+          <pose>-0.225 0.225 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.4</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.2 0.2 0.2 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="leg_right_front_collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="leg_right_front_visual">
+          <pose>0.225 0.225 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.4</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.2 0.2 0.2 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="leg_left_back_collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="leg_left_back_visual">
+          <pose>-0.225 -0.225 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.4</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.2 0.2 0.2 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+        <collision name="leg_right_back_collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.4</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="leg_right_back_visual">
+          <pose>0.225 -0.225 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.4</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.2 0.2 0.2 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- 衣柜 -->
+    <model name="wardrobe">
+      <static>true</static>
+      <link name="link">
+        <pose>4.2 0 0.9 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.6 2.0 1.8</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.6 2.0 1.8</size>
+            </box>
+          </geometry>
+          <material>
+            <diffuse>0.7 0.65 0.6 1</diffuse>
+            <specular>0 0 0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
