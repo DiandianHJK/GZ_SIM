@@ -5,6 +5,7 @@
             <sensor name="gpu_lidar" type="gpu_lidar">
                 <gz_frame_id>laser_link</gz_frame_id>
                 <plugin name="gz::sim::systems::Sensors" filename="gz-sim-sensors-system"> 
+                    <render_engine>ogre</render_engine>
                 </plugin>
                 <topic>lidar</topic>
                 <always_on>1</always_on>
@@ -42,6 +43,7 @@
                 <gz_frame_id>base_footprint</gz_frame_id>
                 <plugin name="gz::sim::systems::Imu" filename="gz-sim-imu-system">                 
                     <initial_orientation_as_reference>false</initial_orientation_as_reference>
+                    <render_engine>ogre</render_engine>
                 </plugin>
                 <topic>imu</topic>
                 <update_rate>100</update_rate>
@@ -108,6 +110,7 @@
             <sensor name="rgbd_camera_sensor" type="rgbd_camera">
                 <gz_frame_id>camera_optical_link</gz_frame_id>
                 <plugin name="gz::sim::systems::Camera" filename="gz-sim-camera-system">
+                <render_engine>ogre</render_engine>
                 </plugin>
                 <topic>camera</topic>
                 <always_on>1</always_on>
