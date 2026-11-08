@@ -84,3 +84,8 @@ ls /opt/ros/lyrical/lib/libgz_ros2_control-system.so
 
 lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ ldd /opt/ros/lyrical/lib/libgz_ros2_control-system.so | grep "not found"
 lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ 
+
+dpkg -l |grep ros-lyrical-controller-manager
+ii  ros-lyrical-controller-manager                     6.10.1-1resolute.20260924.145522           amd64        The main runnable entrypoint of ros2_control and home of controller management and resource management.
+ii  ros-lyrical-controller-manager-msgs                6.10.1-1resolute.20260915.045503           amd64        Messages and services for the controller manager.
+
