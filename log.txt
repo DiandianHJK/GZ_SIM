@@ -1,0 +1,11 @@
+1794135076.8981898 [INFO] [launch]: All log files can be found below /home/lcy/.ros/log/2026-11-08-18-51-16-896934-ubuntu-6425
+1794135076.8982821 [INFO] [launch]: Default logging verbosity is set to INFO
+1794135077.2387335 [INFO] [robot_state_publisher-1]: process started with pid [6431]
+1794135077.2388704 [INFO] [gazebo-2]: process started with pid [6432]
+1794135077.2395360 [INFO] [parameter_bridge-3]: process started with pid [6434]
+1794135087.2507346 [INFO] [create-4]: process started with pid [6721]
+1794135087.6687241 [create-4] [INFO] [1794135087.667534306] [ros_gz_sim]: Requesting list of world names.
+1794135087.8748288 [create-4] [INFO] [1794135087.874644570] [ros_gz_sim]: Waiting messages on topic [robot_description].
+1794135087.8903549 [create-4] [INFO] [1794135087.890070909] [ros_gz_sim]: Entity creation successful.
+1794135088.0043893 [INFO] [create-4]: process has finished cleanly [pid 6721]
+1794135089.3590302 [ERROR] [gazebo-2]: process has died [pid 6432, exit code 139, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim -r /home/lcy/Ros2/Chapt6/chapt6_ws/install/fishbot_description/share/fishbot_description/world/custom_room.world --render-engine ogre --force-version 10']..
