@@ -49,6 +49,7 @@ def generate_launch_description():
         package="ros_gz_bridge",
         executable="parameter_bridge",
         arguments=[
+            "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock"
             # "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
             # "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
             # "/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model",
@@ -63,12 +64,29 @@ def generate_launch_description():
         ],
         output="screen"
     )
-
+    spawn_controllers = launch.actions.TimerAction(
+        period=10.0,
+        actions=[
+            launch_ros.actions.Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint_state_broadcaster"],
+                output="screen"
+            ),
+            launch_ros.actions.Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["diff_drive_controller"],
+                output="screen"
+            ),
+        ]
+    )
     return launch.LaunchDescription([
         action_declare_arg_mode_path,
         robot_state_publisher_node,
         launch_gazebo,
         #spawn_entity_node,
         delay_spawn,
-        ros_gz_bridge_node
+        ros_gz_bridge_node,
+        spawn_controllers
     ])
