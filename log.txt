@@ -87,3 +87,13 @@ ros2 launch fishbot_description gazebo_sim.launch.py
 [INFO] [robot_state_publisher-1]: process has finished cleanly [pid 21566]
 [INFO] [spawner-5]: process has finished cleanly [pid 21796]
 
+apt-cache madison ros-lyrical-gz-ros2-control ros-lyrical-controller-manager
+ros-lyrical-gz-ros2-control | 3.0.9-1resolute.20260930.014209 | http://packages.ros.org/ros2/ubuntu resolute/main amd64 Packages
+ros-lyrical-controller-manager | 6.10.1-1resolute.20260924.145522 | http://packages.ros.org/ros2/ubuntu resolute/main amd64 Packages
+lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ ros2 pkg prefix gz_ros2_control
+/opt/ros/lyrical
+lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ echo $GZ_SIM_SYSTEM_PLUGIN_PATH
+/opt/ros/lyrical/lib
+lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ ls -l ~/Ros/Chapt6/chapt6_ws/install/gz_ros2_control/lib/libgz_ros2_control-system.so
+ls: cannot access '/home/lcy/Ros/Chapt6/chapt6_ws/install/gz_ros2_control/lib/libgz_ros2_control-system.so': No such file or directory
+
