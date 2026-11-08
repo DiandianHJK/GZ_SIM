@@ -1,57 +1,78 @@
-ros2 launch fishbot_description gazebo_sim.launch.py
-[INFO] [launch]: All log files can be found below /home/lcy/.ros/log/2026-11-08-18-51-16-896934-ubuntu-6425
+ros2 launch fishbot_description gazebo_sim.launch.py 2>&1 | tee /home/lcy/gz_crash.log
+[INFO] [launch]: All log files can be found below /home/lcy/.ros/log/2026-11-08-19-25-57-124313-ubuntu-13436
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [robot_state_publisher-1]: process started with pid [6431]
-[INFO] [gazebo-2]: process started with pid [6432]
-[INFO] [parameter_bridge-3]: process started with pid [6434]
-[robot_state_publisher-1] [INFO] [1794135077.349318659] [robot_state_publisher]: Robot initialized
-[parameter_bridge-3] [INFO] [1794135077.367150240] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/lidar (gz.msgs.LaserScan) -> /lidar (sensor_msgs/msg/LaserScan)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.372767117] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/lidar (sensor_msgs/msg/LaserScan) -> /lidar (gz.msgs.LaserScan)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.374196762] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/imu (gz.msgs.IMU) -> /imu (sensor_msgs/msg/Imu)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.375013969] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/imu (sensor_msgs/msg/Imu) -> /imu (gz.msgs.IMU)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.375944863] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/points (gz.msgs.PointCloudPacked) -> /camera/points (sensor_msgs/msg/PointCloud2)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.376946745] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/points (sensor_msgs/msg/PointCloud2) -> /camera/points (gz.msgs.PointCloudPacked)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.378231099] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/image (gz.msgs.Image) -> /camera/image (sensor_msgs/msg/Image)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.378913170] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/image (sensor_msgs/msg/Image) -> /camera/image (gz.msgs.Image)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.380045508] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/depth_image (gz.msgs.Image) -> /camera/depth_image (sensor_msgs/msg/Image)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.380755718] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/depth_image (sensor_msgs/msg/Image) -> /camera/depth_image (gz.msgs.Image)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.381536357] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/camera_info (gz.msgs.CameraInfo) -> /camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
-[parameter_bridge-3] [INFO] [1794135077.382223387] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/camera_info (sensor_msgs/msg/CameraInfo) -> /camera/camera_info (gz.msgs.CameraInfo)] (Lazy 0)
-[INFO] [create-4]: process started with pid [6721]
-[create-4] [INFO] [1794135087.667534306] [ros_gz_sim]: Requesting list of world names.
-[create-4] [INFO] [1794135087.874644570] [ros_gz_sim]: Waiting messages on topic [robot_description].
-[create-4] [INFO] [1794135087.890070909] [ros_gz_sim]: Entity creation successful.
+[INFO] [robot_state_publisher-1]: process started with pid [13443]
+[INFO] [gazebo-2]: process started with pid [13444]
+[INFO] [parameter_bridge-3]: process started with pid [13446]
+[robot_state_publisher-1] [INFO] [1794137157.433317491] [robot_state_publisher]: Robot initialized
+[parameter_bridge-3] [INFO] [1794137157.890332108] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/lidar (gz.msgs.LaserScan) -> /lidar (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.895308084] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/lidar (sensor_msgs/msg/LaserScan) -> /lidar (gz.msgs.LaserScan)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.897848933] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/imu (gz.msgs.IMU) -> /imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.898313236] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/imu (sensor_msgs/msg/Imu) -> /imu (gz.msgs.IMU)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.899143682] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/points (gz.msgs.PointCloudPacked) -> /camera/points (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.900425902] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/points (sensor_msgs/msg/PointCloud2) -> /camera/points (gz.msgs.PointCloudPacked)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.902773119] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/image (gz.msgs.Image) -> /camera/image (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.903986138] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/image (sensor_msgs/msg/Image) -> /camera/image (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.905146186] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/depth_image (gz.msgs.Image) -> /camera/depth_image (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.906093963] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/depth_image (sensor_msgs/msg/Image) -> /camera/depth_image (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.907082241] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/camera_info (gz.msgs.CameraInfo) -> /camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794137157.907543764] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/camera_info (sensor_msgs/msg/CameraInfo) -> /camera/camera_info (gz.msgs.CameraInfo)] (Lazy 0)
+[INFO] [create-4]: process started with pid [13878]
+[create-4] [INFO] [1794137167.775170409] [ros_gz_sim]: Requesting list of world names.
+[create-4] [INFO] [1794137168.002585421] [ros_gz_sim]: Waiting messages on topic [robot_description].
+[create-4] [INFO] [1794137168.016694615] [ros_gz_sim]: Entity creation successful.
 [gazebo-2] Warning [Utils.cc:132] [/sdf/model[@name="fishbot"]/link[@name="base_footprint"]/sensor[@name="rgbd_camera_sensor"]/gz_frame_id:<urdf-string>:L0]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
 [gazebo-2] Warning [Utils.cc:132] [/sdf/model[@name="fishbot"]/link[@name="base_footprint"]/sensor[@name="imu_sensor"]/gz_frame_id:<urdf-string>:L0]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
 [gazebo-2] Warning [Utils.cc:132] [/sdf/model[@name="fishbot"]/link[@name="base_footprint"]/sensor[@name="gpu_lidar"]/gz_frame_id:<urdf-string>:L0]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
-[INFO] [create-4]: process has finished cleanly [pid 6721]
-[gazebo-2] [INFO] [1794135088.092275682] [gz_ros_control]: Loading controller_manager
+[INFO] [create-4]: process has finished cleanly [pid 13878]
+[gazebo-2] [INFO] [1794137168.167106672] [gz_ros_control]: Loading controller_manager
 [gazebo-2] Stack trace (most recent call last):
 [gazebo-2] #18   Object "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2", at 0xffffffffffffffff, in 
-[gazebo-2] #17   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main", at 0x5a9489492a44, in 
-[gazebo-2] #16   Source "../csu/libc-start.c", line 360, in __libc_start_main_impl [0x7db04942a717]
-[gazebo-2] #15   Source "../sysdeps/nptl/libc_start_call_main.h", line 59, in __libc_start_call_main [0x7db04942a600]
-[gazebo-2] #14   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main", at 0x5a9489490674, in 
-[gazebo-2] #13   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7db04af56fa8, in 
-[gazebo-2] #12   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7db04af69ce6, in gz::sim::v10::SimulationRunner::Run(unsigned long)
-[gazebo-2] #11   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7db04af690ce, in gz::sim::v10::SimulationRunner::Step(gz::sim::v10::UpdateInfo const&)
-[gazebo-2] #10   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7db04af64802, in gz::sim::v10::SimulationRunner::UpdateSystems()
-[gazebo-2] #9    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.so.10.5.0", at 0x7dafff69a8b3, in 
-[gazebo-2] #8    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.so.10.5.0", at 0x7dafff695aa2, in 
-[gazebo-2] #7    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7db04af1c333, in gz::sim::v10::SdfEntityCreator::CreateEntities(sdf::v16::Model const*)
-[gazebo-2] #6    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7db04af17a00, in gz::sim::v10::SdfEntityCreator::LoadModelPlugins()
-[gazebo-2] #5    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7db04af204dc, in 
-[gazebo-2] #4    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7db04af64bd7, in gz::sim::v10::SimulationRunner::LoadPlugins(unsigned long, std::vector<sdf::v16::Plugin, std::allocator<sdf::v16::Plugin> > const&)
-[gazebo-2] #3    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7db04af7d74b, in gz::sim::v10::SystemManager::LoadPlugin(unsigned long, sdf::v16::Plugin const&)
-[gazebo-2] #2    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7db04af85ea1, in gz::sim::v10::SystemManager::AddSystemImpl(gz::sim::v10::SystemInternal, std::shared_ptr<sdf::v16::Element const>)
-[gazebo-2] #1    Object "/opt/ros/lyrical/lib/libgz_ros2_control-system.so", at 0x7dafffd02469, in gz_ros2_control::GazeboSimROS2ControlPlugin::Configure(unsigned long const&, std::shared_ptr<sdf::v16::Element const> const&, gz::sim::v10::EntityComponentManager&, gz::sim::v10::EventManager&)
-[gazebo-2] #0    Object "/opt/ros/lyrical/lib/libgz_ros2_control-system.so", at 0x7dafffcfa744, in 
+[gazebo-2] #17   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main", at 0x5e78e4ee4a44, in 
+[gazebo-2] #16   Source "../csu/libc-start.c", line 360, in __libc_start_main_impl [0x7aa26062a717]
+[gazebo-2] #15   Source "../sysdeps/nptl/libc_start_call_main.h", line 59, in __libc_start_call_main [0x7aa26062a600]
+[gazebo-2] #14   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main", at 0x5e78e4ee2674, in 
+[gazebo-2] #13   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262156fa8, in 
+[gazebo-2] #12   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262169ce6, in gz::sim::v10::SimulationRunner::Run(unsigned long)
+[gazebo-2] #11   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa2621690ce, in gz::sim::v10::SimulationRunner::Step(gz::sim::v10::UpdateInfo const&)
+[gazebo-2] #10   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262164802, in gz::sim::v10::SimulationRunner::UpdateSystems()
+[gazebo-2] #9    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.so.10.5.0", at 0x7aa2163798b3, in 
+[gazebo-2] #8    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.so.10.5.0", at 0x7aa216374aa2, in 
+[gazebo-2] #7    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa26211c333, in gz::sim::v10::SdfEntityCreator::CreateEntities(sdf::v16::Model const*)
+[gazebo-2] #6    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262117a00, in gz::sim::v10::SdfEntityCreator::LoadModelPlugins()
+[gazebo-2] #5    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa2621204dc, in 
+[gazebo-2] #4    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262164bd7, in gz::sim::v10::SimulationRunner::LoadPlugins(unsigned long, std::vector<sdf::v16::Plugin, std::allocator<sdf::v16::Plugin> > const&)
+[gazebo-2] #3    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa26217d74b, in gz::sim::v10::SystemManager::LoadPlugin(unsigned long, sdf::v16::Plugin const&)
+[gazebo-2] #2    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262185ea1, in gz::sim::v10::SystemManager::AddSystemImpl(gz::sim::v10::SystemInternal, std::shared_ptr<sdf::v16::Element const>)
+[gazebo-2] #1    Object "/opt/ros/lyrical/lib/libgz_ros2_control-system.so", at 0x7aa2152b7469, in gz_ros2_control::GazeboSimROS2ControlPlugin::Configure(unsigned long const&, std::shared_ptr<sdf::v16::Element const> const&, gz::sim::v10::EntityComponentManager&, gz::sim::v10::EventManager&)
+[gazebo-2] #0    Object "/opt/ros/lyrical/lib/libgz_ros2_control-system.so", at 0x7aa2152af744, in 
 [gazebo-2] Segmentation fault (Address not mapped to object [(nil)])
 [gazebo-2] Segmentation fault (core dumped)
-[ERROR] [gazebo-2]: process has died [pid 6432, exit code 139, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim -r /home/lcy/Ros2/Chapt6/chapt6_ws/install/fishbot_description/share/fishbot_description/world/custom_room.world --render-engine ogre --force-version 10'].
-^C[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
-[robot_state_publisher-1] [INFO] [1794135775.123169122] [rclcpp]: signal_handler(signum=2)
-[parameter_bridge-3] [INFO] [1794135775.123169021] [rclcpp]: signal_handler(signum=2)
-[INFO] [parameter_bridge-3]: process has finished cleanly [pid 6434]
-[INFO] [robot_state_publisher-1]: process has finished cleanly [pid 6431]
+[ERROR] [gazebo-2]: process has died [pid 13444, exit code 139, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim -r /home/lcy/Ros2/Chapt6/chapt6_ws/install/fishbot_description/share/fishbot_description/world/custom_room.world --render-engine ogre --force-version 10'].
+^C
+lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ grep -A 30 "Stack trace\|Segmentation\|gz_ros\|controller_manager\|ERROR\|FATAL" /home/lcy/gz_crash.log
+[gazebo-2] [INFO] [1794137168.167106672] [gz_ros_control]: Loading controller_manager
+[gazebo-2] Stack trace (most recent call last):
+[gazebo-2] #18   Object "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2", at 0xffffffffffffffff, in 
+[gazebo-2] #17   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main", at 0x5e78e4ee4a44, in 
+[gazebo-2] #16   Source "../csu/libc-start.c", line 360, in __libc_start_main_impl [0x7aa26062a717]
+[gazebo-2] #15   Source "../sysdeps/nptl/libc_start_call_main.h", line 59, in __libc_start_call_main [0x7aa26062a600]
+[gazebo-2] #14   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main", at 0x5e78e4ee2674, in 
+[gazebo-2] #13   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262156fa8, in 
+[gazebo-2] #12   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262169ce6, in gz::sim::v10::SimulationRunner::Run(unsigned long)
+[gazebo-2] #11   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa2621690ce, in gz::sim::v10::SimulationRunner::Step(gz::sim::v10::UpdateInfo const&)
+[gazebo-2] #10   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262164802, in gz::sim::v10::SimulationRunner::UpdateSystems()
+[gazebo-2] #9    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.so.10.5.0", at 0x7aa2163798b3, in 
+[gazebo-2] #8    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.so.10.5.0", at 0x7aa216374aa2, in 
+[gazebo-2] #7    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa26211c333, in gz::sim::v10::SdfEntityCreator::CreateEntities(sdf::v16::Model const*)
+[gazebo-2] #6    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262117a00, in gz::sim::v10::SdfEntityCreator::LoadModelPlugins()
+[gazebo-2] #5    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa2621204dc, in 
+[gazebo-2] #4    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262164bd7, in gz::sim::v10::SimulationRunner::LoadPlugins(unsigned long, std::vector<sdf::v16::Plugin, std::allocator<sdf::v16::Plugin> > const&)
+[gazebo-2] #3    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa26217d74b, in gz::sim::v10::SystemManager::LoadPlugin(unsigned long, sdf::v16::Plugin const&)
+[gazebo-2] #2    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7aa262185ea1, in gz::sim::v10::SystemManager::AddSystemImpl(gz::sim::v10::SystemInternal, std::shared_ptr<sdf::v16::Element const>)
+[gazebo-2] #1    Object "/opt/ros/lyrical/lib/libgz_ros2_control-system.so", at 0x7aa2152b7469, in gz_ros2_control::GazeboSimROS2ControlPlugin::Configure(unsigned long const&, std::shared_ptr<sdf::v16::Element const> const&, gz::sim::v10::EntityComponentManager&, gz::sim::v10::EventManager&)
+[gazebo-2] #0    Object "/opt/ros/lyrical/lib/libgz_ros2_control-system.so", at 0x7aa2152af744, in 
+[gazebo-2] Segmentation fault (Address not mapped to object [(nil)])
+[gazebo-2] Segmentation fault (core dumped)
+[ERROR] [gazebo-2]: process has died [pid 13444, exit code 139, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim -r /home/lcy/Ros2/Chapt6/chapt6_ws/install/fishbot_description/share/fishbot_description/world/custom_room.world --render-engine ogre --force-version 10'].
 
