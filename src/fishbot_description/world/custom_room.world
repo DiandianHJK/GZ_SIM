@@ -9,7 +9,6 @@
       <specular>0 0 0 1</specular>
       <direction>0.2 0.2 -0.8</direction>
     </light>
-
     <!-- 卧室房间：地面 + 四周墙 -->
     <model name="bedroom">
       <static>true</static>
