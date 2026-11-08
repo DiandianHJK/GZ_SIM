@@ -76,3 +76,11 @@ lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ grep -A 30 "Stack trace\|Segmentation\|gz_ro
 [gazebo-2] Segmentation fault (core dumped)
 [ERROR] [gazebo-2]: process has died [pid 13444, exit code 139, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim -r /home/lcy/Ros2/Chapt6/chapt6_ws/install/fishbot_description/share/fishbot_description/world/custom_room.world --render-engine ogre --force-version 10'].
 
+dpkg -l | grep ros-lyrical-gz-ros2-control
+ii  ros-lyrical-gz-ros2-control                        3.0.9-1resolute.20260930.014209            amd64        Gazebo ros2_control package allows to control simulated robots using ros2_control framework.
+
+ls /opt/ros/lyrical/lib/libgz_ros2_control-system.so
+/opt/ros/lyrical/lib/libgz_ros2_control-system.so
+
+lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ ldd /opt/ros/lyrical/lib/libgz_ros2_control-system.so | grep "not found"
+lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ 
