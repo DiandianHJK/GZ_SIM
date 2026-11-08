@@ -1,27 +1,19 @@
 controller_manager:
   ros__parameters:
     update_rate: 100
-    use_sim_time: true
 
-    fishbot_hardware:
-      type: gz_ros2_control/GazeboSimHardware
-    diff_drive_controller:
-      type: diff_drive_controller/DiffDriveController
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-    fishbot_hardware:
-      ros__parameters:
-      robot_description_param: robot_description
-      robot_description_param_node: robot_state_publisher
-
     diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
       ros__parameters:
-      left_wheel_names: ["left_wheel_joint"]
-      right_wheel_names: ["right_wheel_joint"]
-      wheel_separation: 0.2
-      wheel_radius: 0.032
-      open_loop: false
-      publish_odom: true
-      odom_frame_id: odom
-      base_frame_id: base_footprint
+        left_wheel_names: [left_wheel_joint]
+        right_wheel_names: [right_wheel_joint]
+        wheel_separation: 0.2
+        wheel_radius: 0.032
+        publish_rate: 50.0
+        odom_frame_id: odom
+        base_frame_id: base_footprint
+        enable_odom_tf: true
+        use_stamped_vel: false

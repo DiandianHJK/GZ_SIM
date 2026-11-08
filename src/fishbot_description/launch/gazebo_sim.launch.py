@@ -30,9 +30,9 @@ def generate_launch_description():
     launch_gazebo=launch.actions.IncludeLaunchDescription(
         PythonLaunchDescriptionSource([get_package_share_directory('ros_gz_sim'), '/launch', '/gz_sim.launch.py']), 
         launch_arguments={
-            # 'gz_args': f'-r {default_world_path}'
+            #'gz_args': f'-r {default_world_path}'
             # 黑屏就换成下面这行
-              'gz_args': f'-r {default_world_path} --render-engine ogre'
+             'gz_args': f'-r {default_world_path} --render-engine ogre'
         }.items()
     )
 
@@ -41,15 +41,18 @@ def generate_launch_description():
         executable='create',
         arguments=['-topic', 'robot_description', '-name', robot_name_in_model, ]
     )
-
+    delay_spawn = launch.actions.TimerAction(
+        period=10.0,
+        actions=[spawn_entity_node]
+    )
     ros_gz_bridge_node = Node(
         package="ros_gz_bridge",
         executable="parameter_bridge",
         arguments=[
-            "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
-            "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
-            "/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model",
-            "/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V",
+            # "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
+            # "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
+            # "/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model",
+            # "/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V",
             "/lidar@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan",
             "/imu@sensor_msgs/msg/Imu@gz.msgs.IMU",
             "/camera/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked",
@@ -65,6 +68,7 @@ def generate_launch_description():
         action_declare_arg_mode_path,
         robot_state_publisher_node,
         launch_gazebo,
-        spawn_entity_node,
+        #spawn_entity_node,
+        delay_spawn,
         ros_gz_bridge_node
     ])
