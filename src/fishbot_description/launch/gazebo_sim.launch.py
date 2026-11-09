@@ -42,14 +42,30 @@ def generate_launch_description():
         arguments=['-topic', 'robot_description', '-name', robot_name_in_model, ]
     )
     delay_spawn = launch.actions.TimerAction(
-        period=10.0,
+        period=5.0,
         actions=[spawn_entity_node]
     )
+    from launch_ros.actions import Node
+
+    controller_manager_node = Node(
+        package="controller_manager",
+        executable="ros2_control_node",
+        parameters=[
+            # 控制器yaml
+            urdf_tutorial_path + '/config/fishbot_ros2_controller.yaml',
+            # 把robot_description传给controller_manager
+            {'robot_description': robot_description},
+            {'use_sim_time': True},
+    
+        ],
+        output="screen"
+    )
+
     ros_gz_bridge_node = Node(
         package="ros_gz_bridge",
         executable="parameter_bridge",
         arguments=[
-            "/clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock"
+            "/clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock",
             # "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
             # "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
             # "/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model",
@@ -64,23 +80,23 @@ def generate_launch_description():
         ],
         output="screen"
     )
-    spawn_controllers = launch.actions.TimerAction(
-        period=10.0,
-        actions=[
-            launch_ros.actions.Node(
-                package="controller_manager",
-                executable="spawner",
-                arguments=["joint_state_broadcaster"],
-                output="screen"
-            ),
-            launch_ros.actions.Node(
-                package="controller_manager",
-                executable="spawner",
-                arguments=["diff_drive_controller"],
-                output="screen"
-            ),
-        ]
-    )
+    # spawn_controllers = launch.actions.TimerAction(
+    #     period=10.0,
+    #     actions=[
+    #         launch_ros.actions.Node(
+    #             package="controller_manager",
+    #             executable="spawner",
+    #             arguments=["joint_state_broadcaster"],
+    #             output="screen"
+    #         ),
+    #         launch_ros.actions.Node(
+    #             package="controller_manager",
+    #             executable="spawner",
+    #             arguments=["diff_drive_controller"],
+    #             output="screen"
+    #         ),
+    #     ]
+    # )
     return launch.LaunchDescription([
         action_declare_arg_mode_path,
         robot_state_publisher_node,
@@ -88,5 +104,6 @@ def generate_launch_description():
         #spawn_entity_node,
         delay_spawn,
         ros_gz_bridge_node,
-        spawn_controllers
+        #spawn_controllers,
+        controller_manager_node
     ])
