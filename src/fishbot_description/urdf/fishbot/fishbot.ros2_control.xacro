@@ -4,7 +4,7 @@
         <ros2_control name="FishBotGazeboSystem" type="system">
             <hardware>
                 <plugin>mock_components/GenericSystem</plugin>
-                <!--gz_ros2_control/GazeboSimSystem-->>
+                <!--gz_ros2_control/GazeboSimSystem-->
             </hardware>
 
             <joint name="left_wheel_joint">

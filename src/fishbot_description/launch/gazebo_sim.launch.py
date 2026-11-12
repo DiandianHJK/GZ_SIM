@@ -35,7 +35,7 @@ def generate_launch_description():
              'gz_args': f'-r {default_world_path} --render-engine ogre'
         }.items()
     )
-
+    
     spawn_entity_node=launch_ros.actions.Node(
         package='ros_gz_sim',
         executable='create',
@@ -80,23 +80,51 @@ def generate_launch_description():
         ],
         output="screen"
     )
+    spawn_controllers = launch.actions.TimerAction(
+        period=10.0,
+        actions=[
+            launch_ros.actions.Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["joint_state_broadcaster"],
+                output="screen"
+            ),
+            launch_ros.actions.Node(
+                package="controller_manager",
+                executable="spawner",
+                arguments=["diff_drive_controller"],
+                output="screen"
+            ),
+        ]
+    )
     # spawn_controllers = launch.actions.TimerAction(
-    #     period=10.0,
-    #     actions=[
-    #         launch_ros.actions.Node(
-    #             package="controller_manager",
-    #             executable="spawner",
-    #             arguments=["joint_state_broadcaster"],
-    #             output="screen"
-    #         ),
-    #         launch_ros.actions.Node(
-    #             package="controller_manager",
-    #             executable="spawner",
-    #             arguments=["diff_drive_controller"],
-    #             output="screen"
-    #         ),
-    #     ]
+    # period=8.0,
+    # actions=[
+    #     launch_ros.actions.Node(
+    #         package="controller_manager",
+    #         executable="spawner",
+    #         arguments=[
+    #             "joint_state_broadcaster",
+    #             "--activate",
+    #             "--controller-manager", "/controller_manager",
+    #             "--param-file", urdf_tutorial_path + '/config/fishbot_ros2_controller.yaml'
+    #         ],
+    #         output="screen"
+    #     ),
+    #     launch_ros.actions.Node(
+    #         package="controller_manager",
+    #         executable="spawner",
+    #         arguments=[
+    #             "diffbot_base_controller", # 【重点！和yaml顶层名字完全一致】
+    #             "--activate",
+    #             "--controller-manager", "/controller_manager",
+    #             "--param-file", urdf_tutorial_path + '/config/fishbot_ros2_controller.yaml'
+    #         ],
+    #         output="screen"
+    #     ),
+    # ]
     # )
+
     return launch.LaunchDescription([
         action_declare_arg_mode_path,
         robot_state_publisher_node,
@@ -104,6 +132,6 @@ def generate_launch_description():
         #spawn_entity_node,
         delay_spawn,
         ros_gz_bridge_node,
-        #spawn_controllers,
+        spawn_controllers,
         controller_manager_node
     ])
