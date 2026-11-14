@@ -45,31 +45,31 @@ def generate_launch_description():
         period=5.0,
         actions=[spawn_entity_node]
     )
-    from launch_ros.actions import Node
+  
 
-    controller_manager_node = Node(
-        package="controller_manager",
-        executable="ros2_control_node",
-        parameters=[
-            # 控制器yaml
-            urdf_tutorial_path + '/config/fishbot_ros2_controller.yaml',
-            # 把robot_description传给controller_manager
-            {'robot_description': robot_description},
-            {'use_sim_time': True},
+    # controller_manager_node = Node(
+    #     package="controller_manager",
+    #     executable="ros2_control_node",
+    #     parameters=[
+    #         # 控制器yaml
+    #         urdf_tutorial_path + '/config/fishbot_ros2_controller.yaml',
+    #         # 把robot_description传给controller_manager
+    #         {'robot_description': robot_description},
+    #         {'use_sim_time': True},
     
-        ],
-        output="screen"
-    )
+    #     ],
+    #     output="screen"
+    # )
 
     ros_gz_bridge_node = Node(
         package="ros_gz_bridge",
         executable="parameter_bridge",
         arguments=[
-            "/clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock",
-            # "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
-            # "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
-            # "/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model",
-            # "/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V",
+            #"/clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock",
+            "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
+            "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
+            "/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model",
+            "/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V",
             "/lidar@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan",
             "/imu@sensor_msgs/msg/Imu@gz.msgs.IMU",
             "/camera/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked",
@@ -80,9 +80,27 @@ def generate_launch_description():
         ],
         output="screen"
     )
-    spawn_controllers = launch.actions.TimerAction(
-        period=10.0,
-        actions=[
+    # spawn_controllers = launch.actions.TimerAction(
+    #     period=10.0,
+    #     actions=[
+    #         launch_ros.actions.Node(
+    #             package="controller_manager",
+    #             executable="spawner",
+    #             arguments=["joint_state_broadcaster"],
+    #             output="screen"
+    #         ),
+    #         launch_ros.actions.Node(
+    #             package="controller_manager",
+    #             executable="spawner",
+    #             arguments=["diff_drive_controller"],
+    #             output="screen"
+    #         ),
+    #     ]
+    # )
+    spawn_controllers = launch.actions.RegisterEventHandler(
+    launch.event_handlers.OnProcessExit(
+        target_action=spawn_entity_node,   # 就是上面 create（生成机器人）那个 Node
+        on_exit=[
             launch_ros.actions.Node(
                 package="controller_manager",
                 executable="spawner",
@@ -96,6 +114,7 @@ def generate_launch_description():
                 output="screen"
             ),
         ]
+    )
     )
     # spawn_controllers = launch.actions.TimerAction(
     # period=8.0,
@@ -131,7 +150,7 @@ def generate_launch_description():
         launch_gazebo,
         #spawn_entity_node,
         delay_spawn,
-        ros_gz_bridge_node,
-        spawn_controllers,
-        controller_manager_node
+        ros_gz_bridge_node
+        #spawn_controllers
+        #controller_manager_node
     ])

@@ -3,8 +3,8 @@
     <xacro:macro name="fishbot_ros2_control">
         <ros2_control name="FishBotGazeboSystem" type="system">
             <hardware>
-                <plugin>mock_components/GenericSystem</plugin>
-                <!--gz_ros2_control/GazeboSimSystem-->
+                <!--plugin>mock_components/GenericSystem</plugin-->
+                <plugin>gz_ros2_control/GazeboSimSystem</plugin>
             </hardware>
 
             <joint name="left_wheel_joint">
@@ -35,12 +35,12 @@
                 <state_interface name="effort" />
             </joint>
         </ros2_control>
-        <!-- <gazebo>
+        <gazebo>
             <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
                 <robot_param>robot_description</robot_param>
                 <robot_param_node>robot_state_publisher</robot_param_node>
                 <parameters>$(find fishbot_description)/config/fishbot_ros2_controller.yaml</parameters>
             </plugin>
-        </gazebo> -->
+        </gazebo>
     </xacro:macro>
 </robot>

@@ -1,99 +1,93 @@
 ros2 launch fishbot_description gazebo_sim.launch.py
-[INFO] [launch]: All log files can be found below /home/lcy/.ros/log/2026-11-08-21-56-35-288654-ubuntu-21561
+[INFO] [launch]: All log files can be found below /home/lcy/.ros/log/2026-11-13-19-35-38-772394-ubuntu-8865
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [robot_state_publisher-1]: process started with pid [21566]
-[INFO] [gazebo-2]: process started with pid [21567]
-[INFO] [parameter_bridge-3]: process started with pid [21569]
-[robot_state_publisher-1] [INFO] [1794146195.602470599] [robot_state_publisher]: Robot initialized
-[parameter_bridge-3] Bridge a collection of ROS2 and Gazebo Transport topics and services.
-[parameter_bridge-3] 
-[parameter_bridge-3]   parameter_bridge [<topic@ROS2_type@Ign_type> ..]  [<service@ROS2_srv_type[@Ign_req_type@Ign_rep_type]> ..]
-[parameter_bridge-3] 
-[parameter_bridge-3] Topics: The first @ symbol delimits the topic name from the message types.
-[parameter_bridge-3] Following the first @ symbol is the ROS message type.
-[parameter_bridge-3] The ROS message type is followed by an @, [, or ] symbol where
-[parameter_bridge-3]     @  == a bidirectional bridge, 
-[parameter_bridge-3]     [  == a bridge from Gazebo to ROS,
-[parameter_bridge-3]     ]  == a bridge from ROS to Gazebo.
-[parameter_bridge-3] Following the direction symbol is the Gazebo Transport message type.
-[parameter_bridge-3] 
-[parameter_bridge-3] Services: The first @ symbol delimits the service name from the types.
-[parameter_bridge-3] Following the first @ symbol is the ROS service type.
-[parameter_bridge-3] Optionally, you can include the Gazebo request and response type
-[parameter_bridge-3] separated by the @ symbol.
-[parameter_bridge-3] It is only supported to expose Gazebo services as ROS services, i.e.
-[parameter_bridge-3] the ROS service will forward request to the Gazebo service and then forward
-[parameter_bridge-3] the response back to the ROS client.
-[parameter_bridge-3] 
-[parameter_bridge-3] A bidirectional bridge example:
-[parameter_bridge-3]     parameter_bridge /chatter@std_msgs/String@gz.msgs.StringMsg
-[parameter_bridge-3] 
-[parameter_bridge-3] A bridge from Gazebo to ROS example:
-[parameter_bridge-3]     parameter_bridge /chatter@std_msgs/String[gz.msgs.StringMsg
-[parameter_bridge-3] 
-[parameter_bridge-3] A bridge from ROS to Gazebo example:
-[parameter_bridge-3]     parameter_bridge /chatter@std_msgs/String]gz.msgs.StringMsg
-[parameter_bridge-3] A service bridge:
-[parameter_bridge-3]     parameter_bridge /world/default/control@ros_gz_interfaces/srv/ControlWorld
-[parameter_bridge-3] Or equivalently:
-[parameter_bridge-3]     parameter_bridge /world/default/control@ros_gz_interfaces/srv/ControlWorld@gz.msgs.WorldControl@gz.msgs.Boolean
-[parameter_bridge-3] 
-[ERROR] [parameter_bridge-3]: process has died [pid 21569, exit code 255, cmd '/opt/ros/lyrical/lib/ros_gz_bridge/parameter_bridge /clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock/lidar@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan /imu@sensor_msgs/msg/Imu@gz.msgs.IMU /camera/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked /camera/image@sensor_msgs/msg/Image@gz.msgs.Image /camera/depth_image@sensor_msgs/msg/Image@gz.msgs.Image /camera/camera_info@sensor_msgs/msg/CameraInfo@gz.msgs.CameraInfo --ros-args'].
-[INFO] [create-4]: process started with pid [21795]
-[INFO] [spawner-5]: process started with pid [21796]
-[INFO] [spawner-6]: process started with pid [21797]
-[create-4] [INFO] [1794146205.950909298] [ros_gz_sim]: Requesting list of world names.
-[spawner-5] [INFO] [1794146205.979377922] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
-[create-4] [INFO] [1794146206.156593739] [ros_gz_sim]: Waiting messages on topic [robot_description].
-[create-4] [INFO] [1794146206.171109037] [ros_gz_sim]: Entity creation successful.
+[INFO] [robot_state_publisher-1]: process started with pid [8871]
+[INFO] [gazebo-2]: process started with pid [8872]
+[INFO] [parameter_bridge-3]: process started with pid [8873]
+[parameter_bridge-3] [INFO] [1794569739.268878620] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.275722533] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/clock (rosgraph_msgs/msg/Clock) -> /clock (gz.msgs.Clock)] (Lazy 0)
+[robot_state_publisher-1] [INFO] [1794569739.276372840] [robot_state_publisher]: Robot initialized
+[parameter_bridge-3] [INFO] [1794569739.277468106] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/lidar (gz.msgs.LaserScan) -> /lidar (sensor_msgs/msg/LaserScan)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.282511426] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/lidar (sensor_msgs/msg/LaserScan) -> /lidar (gz.msgs.LaserScan)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.283560023] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/imu (gz.msgs.IMU) -> /imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.284445938] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/imu (sensor_msgs/msg/Imu) -> /imu (gz.msgs.IMU)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.285833559] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/points (gz.msgs.PointCloudPacked) -> /camera/points (sensor_msgs/msg/PointCloud2)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.287190565] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/points (sensor_msgs/msg/PointCloud2) -> /camera/points (gz.msgs.PointCloudPacked)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.289056708] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/image (gz.msgs.Image) -> /camera/image (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.291275123] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/image (sensor_msgs/msg/Image) -> /camera/image (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.291771232] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/depth_image (gz.msgs.Image) -> /camera/depth_image (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.293796738] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/depth_image (sensor_msgs/msg/Image) -> /camera/depth_image (gz.msgs.Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.296234197] [ros_gz_bridge]: Creating GZ->ROS Bridge: [/camera/camera_info (gz.msgs.CameraInfo) -> /camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1794569739.296665576] [ros_gz_bridge]: Creating ROS->GZ Bridge: [/camera/camera_info (sensor_msgs/msg/CameraInfo) -> /camera/camera_info (gz.msgs.CameraInfo)] (Lazy 0)
+[INFO] [create-4]: process started with pid [9079]
+[create-4] [INFO] [1794569744.251489588] [ros_gz_sim]: Requesting list of world names.
+[create-4] [INFO] [1794569744.679344899] [ros_gz_sim]: Waiting messages on topic [robot_description].
+[create-4] [INFO] [1794569744.691799396] [ros_gz_sim]: Entity creation successful.
 [gazebo-2] Warning [Utils.cc:132] [/sdf/model[@name="fishbot"]/link[@name="base_footprint"]/sensor[@name="rgbd_camera_sensor"]/gz_frame_id:<urdf-string>:L0]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
 [gazebo-2] Warning [Utils.cc:132] [/sdf/model[@name="fishbot"]/link[@name="base_footprint"]/sensor[@name="imu_sensor"]/gz_frame_id:<urdf-string>:L0]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
 [gazebo-2] Warning [Utils.cc:132] [/sdf/model[@name="fishbot"]/link[@name="base_footprint"]/sensor[@name="gpu_lidar"]/gz_frame_id:<urdf-string>:L0]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
-[INFO] [create-4]: process has finished cleanly [pid 21795]
-[gazebo-2] [INFO] [1794146206.311633051] [gz_ros_control]: Loading controller_manager
+[INFO] [create-4]: process has finished cleanly [pid 9079]
+[INFO] [spawner-5]: process started with pid [9105]
+[INFO] [spawner-6]: process started with pid [9106]
+[gazebo-2] [INFO] [1794569744.979665576] [gz_ros_control]: Loading controller_manager
 [gazebo-2] Stack trace (most recent call last):
 [gazebo-2] #18   Object "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2", at 0xffffffffffffffff, in 
-[gazebo-2] #17   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main", at 0x602171543a44, in 
-[gazebo-2] #16   Source "../csu/libc-start.c", line 360, in __libc_start_main_impl [0x7d8210a2a717]
-[gazebo-2] #15   Source "../sysdeps/nptl/libc_start_call_main.h", line 59, in __libc_start_call_main [0x7d8210a2a600]
-[gazebo-2] #14   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main", at 0x602171541674, in 
-[gazebo-2] #13   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7d8212556fa8, in 
-[gazebo-2] #12   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7d8212569ce6, in gz::sim::v10::SimulationRunner::Run(unsigned long)
-[gazebo-2] #11   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7d82125690ce, in gz::sim::v10::SimulationRunner::Step(gz::sim::v10::UpdateInfo const&)
-[gazebo-2] #10   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7d8212564802, in gz::sim::v10::SimulationRunner::UpdateSystems()
-[gazebo-2] #9    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.so.10.5.0", at 0x7d81c6e2d8b3, in 
-[gazebo-2] #8    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.so.10.5.0", at 0x7d81c6e28aa2, in 
-[gazebo-2] #7    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7d821251c333, in gz::sim::v10::SdfEntityCreator::CreateEntities(sdf::v16::Model const*)
-[gazebo-2] #6    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7d8212517a00, in gz::sim::v10::SdfEntityCreator::LoadModelPlugins()
-[gazebo-2] #5    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7d82125204dc, in 
-[gazebo-2] #4    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7d8212564bd7, in gz::sim::v10::SimulationRunner::LoadPlugins(unsigned long, std::vector<sdf::v16::Plugin, std::allocator<sdf::v16::Plugin> > const&)
-[gazebo-2] #3    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7d821257d74b, in gz::sim::v10::SystemManager::LoadPlugin(unsigned long, sdf::v16::Plugin const&)
-[gazebo-2] #2    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x7d8212585ea1, in gz::sim::v10::SystemManager::AddSystemImpl(gz::sim::v10::SystemInternal, std::shared_ptr<sdf::v16::Element const>)
-[gazebo-2] #1    Object "/opt/ros/lyrical/lib/libgz_ros2_control-system.so", at 0x7d81c57d7469, in gz_ros2_control::GazeboSimROS2ControlPlugin::Configure(unsigned long const&, std::shared_ptr<sdf::v16::Element const> const&, gz::sim::v10::EntityComponentManager&, gz::sim::v10::EventManager&)
-[gazebo-2] #0    Object "/opt/ros/lyrical/lib/libgz_ros2_control-system.so", at 0x7d81c57cf744, in 
+[spawner-5] [INFO] [1794569745.463919370] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[gazebo-2] #17   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main", at 0x64f6741b9a44, in 
+[gazebo-2] #16   Source "../csu/libc-start.c", line 360, in __libc_start_main_impl [0x72535b02a717]
+[gazebo-2] #15   Source "../sysdeps/nptl/libc_start_call_main.h", line 59, in __libc_start_call_main [0x72535b02a600]
+[gazebo-2] #14   Object "/opt/ros/lyrical/opt/gz_sim_vendor/libexec/gz/sim10/gz-sim-main", at 0x64f6741b7674, in 
+[gazebo-2] #13   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x72535cb56fa8, in 
+[gazebo-2] #12   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x72535cb69ce6, in gz::sim::v10::SimulationRunner::Run(unsigned long)
+[gazebo-2] #11   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x72535cb690ce, in gz::sim::v10::SimulationRunner::Step(gz::sim::v10::UpdateInfo const&)
+[gazebo-2] #10   Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x72535cb64802, in gz::sim::v10::SimulationRunner::UpdateSystems()
+[gazebo-2] #9    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.so.10.5.0", at 0x7253113c38b3, in 
+[gazebo-2] #8    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/libgz-sim-user-commands-system.so.10.5.0", at 0x7253113beaa2, in 
+[gazebo-2] #7    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x72535cb1c333, in gz::sim::v10::SdfEntityCreator::CreateEntities(sdf::v16::Model const*)
+[gazebo-2] #6    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x72535cb17a00, in gz::sim::v10::SdfEntityCreator::LoadModelPlugins()
+[gazebo-2] #5    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x72535cb204dc, in 
+[gazebo-2] #4    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x72535cb64bd7, in gz::sim::v10::SimulationRunner::LoadPlugins(unsigned long, std::vector<sdf::v16::Plugin, std::allocator<sdf::v16::Plugin> > const&)
+[gazebo-2] #3    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x72535cb7d74b, in gz::sim::v10::SystemManager::LoadPlugin(unsigned long, sdf::v16::Plugin const&)
+[gazebo-2] #2    Object "/opt/ros/lyrical/opt/gz_sim_vendor/lib/libgz-sim.so.10.5.0", at 0x72535cb85ea1, in gz::sim::v10::SystemManager::AddSystemImpl(gz::sim::v10::SystemInternal, std::shared_ptr<sdf::v16::Element const>)
+[gazebo-2] #1    Object "/opt/ros/lyrical/lib/libgz_ros2_control-system.so", at 0x72530fd6a469, in gz_ros2_control::GazeboSimROS2ControlPlugin::Configure(unsigned long const&, std::shared_ptr<sdf::v16::Element const> const&, gz::sim::v10::EntityComponentManager&, gz::sim::v10::EventManager&)
+[gazebo-2] #0    Object "/opt/ros/lyrical/lib/libgz_ros2_control-system.so", at 0x72530fd62744, in 
 [gazebo-2] Segmentation fault (Address not mapped to object [(nil)])
+[spawner-5] [WARN] [1794569755.478114353] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569755.478596178] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
 [gazebo-2] Segmentation fault (core dumped)
-[ERROR] [gazebo-2]: process has died [pid 21567, exit code 139, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim -r /home/lcy/Ros2/Chapt6/chapt6_ws/install/fishbot_description/share/fishbot_description/world/custom_room.world --render-engine ogre --force-version 10'].
-[spawner-5] [WARN] [1794146215.997547584] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
-[spawner-5] [INFO] [1794146215.998069345] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
-[spawner-6] [WARN] [1794146226.001227215] [ros2_control_controller_spawner_diff_drive_controller]: Failed to acquire lock in 20 seconds. Attempt 1 of 5 failed. Retrying in 3 seconds...
-[spawner-5] [WARN] [1794146226.015141997] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
-[spawner-5] [INFO] [1794146226.015878928] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[ERROR] [gazebo-2]: process has died [pid 8872, exit code 139, cmd 'ruby /opt/ros/lyrical/opt/gz_tools_vendor/bin/gz sim -r /home/lcy/Ros2/Chapt6/chapt6_ws/install/fishbot_description/share/fishbot_description/world/custom_room.world --render-engine ogre --force-version 10'].
+[spawner-6] [WARN] [1794569765.429879410] [ros2_control_controller_spawner_diff_drive_controller]: Failed to acquire lock in 20 seconds. Attempt 1 of 5 failed. Retrying in 3 seconds...
+[spawner-5] [WARN] [1794569765.496614111] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569765.496826059] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-5] [WARN] [1794569775.515366457] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569775.515585566] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-5] [WARN] [1794569785.534135037] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569785.534443604] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-6] [WARN] [1794569788.438946146] [ros2_control_controller_spawner_diff_drive_controller]: Failed to acquire lock in 20 seconds. Attempt 2 of 5 failed. Retrying in 3 seconds...
+[spawner-5] [WARN] [1794569795.550932711] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569795.551444483] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-5] [WARN] [1794569805.598854485] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569805.600334605] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-6] [WARN] [1794569811.472299189] [ros2_control_controller_spawner_diff_drive_controller]: Failed to acquire lock in 20 seconds. Attempt 3 of 5 failed. Retrying in 3 seconds...
+[spawner-5] [WARN] [1794569815.986090628] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569815.986365525] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-5] [WARN] [1794569826.064484422] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569826.064714676] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-6] [WARN] [1794569834.515812411] [ros2_control_controller_spawner_diff_drive_controller]: Failed to acquire lock in 20 seconds. Attempt 4 of 5 failed. Retrying in 3 seconds...
+[spawner-5] [WARN] [1794569836.097740164] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569836.097929773] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-5] [WARN] [1794569846.186509579] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569846.186702629] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-5] [WARN] [1794569856.202647004] [spawner_joint_state_broadcaster]: Could not contact service /controller_manager/list_controllers
+[spawner-5] [INFO] [1794569856.202848763] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-6] [WARN] [1794569857.525025483] [ros2_control_controller_spawner_diff_drive_controller]: Failed to acquire lock in 20 seconds. Attempt 5 of 5 failed. Retrying in 3 seconds...
+[spawner-6] [ERROR] [1794569860.525978833] [ros2_control_controller_spawner_diff_drive_controller]: Failed to acquire lock after multiple attempts.
+[ERROR] [spawner-6]: process has died [pid 9106, exit code 1, cmd '/opt/ros/lyrical/lib/controller_manager/spawner diff_drive_controller --ros-args'].
 ^C[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
-[robot_state_publisher-1] [INFO] [1794146233.395670376] [rclcpp]: signal_handler(signum=2)
-[spawner-6] [INFO] [1794146233.398385315] [ros2_control_controller_spawner_diff_drive_controller]: KeyboardInterrupt received! Exiting....
-[spawner-5] [INFO] [1794146233.399304947] [spawner_joint_state_broadcaster]: KeyboardInterrupt received! Exiting....
-[INFO] [spawner-6]: process has finished cleanly [pid 21797]
-[INFO] [robot_state_publisher-1]: process has finished cleanly [pid 21566]
-[INFO] [spawner-5]: process has finished cleanly [pid 21796]
-
-apt-cache madison ros-lyrical-gz-ros2-control ros-lyrical-controller-manager
-ros-lyrical-gz-ros2-control | 3.0.9-1resolute.20260930.014209 | http://packages.ros.org/ros2/ubuntu resolute/main amd64 Packages
-ros-lyrical-controller-manager | 6.10.1-1resolute.20260924.145522 | http://packages.ros.org/ros2/ubuntu resolute/main amd64 Packages
-lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ ros2 pkg prefix gz_ros2_control
-/opt/ros/lyrical
-lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ echo $GZ_SIM_SYSTEM_PLUGIN_PATH
-/opt/ros/lyrical/lib
-lcy@ubuntu:~/Ros2/Chapt6/chapt6_ws$ ls -l ~/Ros/Chapt6/chapt6_ws/install/gz_ros2_control/lib/libgz_ros2_control-system.so
-ls: cannot access '/home/lcy/Ros/Chapt6/chapt6_ws/install/gz_ros2_control/lib/libgz_ros2_control-system.so': No such file or directory
+[robot_state_publisher-1] [INFO] [1794569863.087640848] [rclcpp]: signal_handler(signum=2)
+[parameter_bridge-3] [INFO] [1794569863.090441370] [rclcpp]: signal_handler(signum=2)
+[spawner-5] [INFO] [1794569863.091913907] [spawner_joint_state_broadcaster]: KeyboardInterrupt received! Exiting....
+[INFO] [parameter_bridge-3]: process has finished cleanly [pid 8873]
+[INFO] [robot_state_publisher-1]: process has finished cleanly [pid 8871]
+[INFO] [spawner-5]: process has finished cleanly [pid 9105]
 
